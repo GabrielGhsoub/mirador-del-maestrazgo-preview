@@ -2,7 +2,9 @@
 # Build + publish dist/ to the gh-pages branch of mirador-del-maestrazgo-preview
 set -e
 cd "$(dirname "$0")"
+rm -rf dist/.git
 npx vite build
+rm -rf dist/.git
 cd dist
 git init -q
 git checkout -q -b gh-pages
