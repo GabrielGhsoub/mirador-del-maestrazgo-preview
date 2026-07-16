@@ -19,7 +19,7 @@ export default function Contact() {
 
   useEffect(() => {
     if (sent && successRef.current) {
-      successRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      successRef.current.scrollIntoView({ block: 'center' })
     }
   }, [sent])
 

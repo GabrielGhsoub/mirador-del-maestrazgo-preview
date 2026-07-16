@@ -12,7 +12,17 @@ export default function BackToTop() {
   }, [])
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    // rAF animation: immune to the overflow-x clip quirk that kills css smooth scroll
+    const start = window.scrollY
+    const t0 = performance.now()
+    const dur = Math.min(700, 200 + start / 8)
+    const ease = x => 1 - Math.pow(1 - x, 3)
+    const step = now => {
+      const p = Math.min(1, (now - t0) / dur)
+      window.scrollTo(0, Math.round(start * (1 - ease(p))))
+      if (p < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
   }
 
   return (
