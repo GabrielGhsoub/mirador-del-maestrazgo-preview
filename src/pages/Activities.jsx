@@ -5,7 +5,7 @@ import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
-const HERO = 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/mirador-skyline-1-q6hot2ghyie907faufv5zszqqs5gd3jslrbzssno2o.jpg'
+const HERO = 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/mirador-skyline-1-q6hot2ghyie907faufv5zszqqs5gd3jslrbzssno2o.jpg?lk=2'
 
 function handleImgLoad(e) {
   e.currentTarget.classList.add('loaded')

@@ -7,8 +7,8 @@ export const SITE = {
   email: 'info@miradordelmaestrazgo.es',
   address: '44559 Ejulve, Teruel, Aragón, Spain',  // per-house streets live in content.json howToGet
   registration: 'VT-TE 552 · CR-TE 734 · VT-TE 563',
-  logo: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/LOGO-miradordelmaestrazgoweb-1-300x171.jpg',
-  heroImage: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/154-2048x1536.jpg',
+  logo: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/LOGO-miradordelmaestrazgoweb-1-300x171.jpg?lk=2',
+  heroImage: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/154-2048x1536.jpg?lk=2',
   scores: {
     booking: '8.4', bookingReviews: 33,
     staff: '9.6', comfort: '8.3', cleanliness: '8.0',

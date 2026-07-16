@@ -13,21 +13,21 @@ const HOUSES = [
     name: 'Los Pajarcicos',
     cap: 'Two apartments · up to 8 guests',
     desc: 'Two independent apartments in converted barns, each with a double loft bedroom, equipped kitchen and wood stove. Perfect for couples and small families.',
-    img: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_01-2048x1367.jpg',
+    img: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_01-2048x1367.jpg?lk=2',
   },
   {
     slug: 'la-casa-de-colores',
     name: 'La Casa de Colores',
     cap: 'Four en-suite rooms · up to 10 guests',
     desc: 'A cheerful rural house with four colourful en-suite bedrooms and a shared dining room. Book a room or take the whole house with friends.',
-    img: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAmarilla_03-768x544.jpg',
+    img: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAmarilla_03-768x544.jpg?lk=2',
   },
   {
     slug: 'la-casa-del-gato',
     name: 'La Casa del Gato',
     cap: 'Whole house · 6 to 10 guests',
     desc: 'A traditional village house over one hundred years old, carefully restored with every modern comfort. Ideal for families and groups.',
-    img: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_25-1-2048x1536.jpg',
+    img: 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_25-1-2048x1536.jpg?lk=2',
   },
 ]
 
@@ -146,7 +146,7 @@ export default function Home() {
             <p>On request, keep your house until 6:00 pm on departure day for 50% of one night. Come back from your morning walk, shower, have lunch on the terrace and leave without hurry.</p>
             <div className="big">Best price guaranteed when you book on this website.</div>
           </Reveal>
-          <Reveal as="div" className="about" style={{ backgroundImage: "linear-gradient(rgba(20,18,10,.2), rgba(20,18,10,.75)), url('https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/Comunes_01.jpg')" }}>
+          <Reveal as="div" className="about" style={{ backgroundImage: "linear-gradient(rgba(20,18,10,.2), rgba(20,18,10,.75)), url('https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/Comunes_01.jpg?lk=2')" }}>
             <h3>Fernando and Mar, your hosts</h3>
             <p>We look after every detail so you can enjoy the Maestrazgo in its purest state.</p>
             <div className="motto">"Come, and let us take care of you!"</div>

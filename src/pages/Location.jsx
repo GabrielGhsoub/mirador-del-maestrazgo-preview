@@ -5,7 +5,7 @@ import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
-const HERO = 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/154-2048x1536.jpg'
+const HERO = 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/154-2048x1536.jpg?lk=2'
 
 export default function Location() {
   const { intro, howToGet, address, gmapsQuery } = content.location
