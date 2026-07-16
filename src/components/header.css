@@ -101,3 +101,20 @@
   .nav{padding:10px 16px}
   .site-header.scrolled .nav{padding:8px 16px}
 }
+
+/* language pills as buttons + preview toast */
+.lang-btn{
+  padding:2px 9px; border-radius:99px; border:1px solid #55523f; background:none;
+  color:inherit; font-weight:600; font-size:11px; letter-spacing:.04em;
+  font-family:inherit; cursor:pointer
+}
+.lang-btn:hover{border-color:var(--gold); color:var(--gold)}
+.lang-btn:focus-visible{outline:2px solid var(--gold); outline-offset:2px}
+.lang-note{
+  position:fixed; top:14px; left:50%; transform:translate(-50%,-16px);
+  background:var(--ink); color:#f2f0e6; font-size:13px; font-weight:600;
+  padding:11px 20px; border-radius:12px; border:1px solid rgba(255,255,255,.16);
+  box-shadow:0 12px 30px rgba(0,0,0,.3); z-index:120; max-width:92vw; text-align:center;
+  opacity:0; pointer-events:none; transition:opacity .3s ease, transform .3s ease
+}
+.lang-note.show{opacity:1; transform:translate(-50%,0)}

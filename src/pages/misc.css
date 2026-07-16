@@ -2,7 +2,7 @@
    Shared .reveal / .img-fade / .hover-lift / .hover-zoom utilities are
    defined once in home.css (bundled with every page, do not redefine). */
 
-.act-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:36px}
+.act-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:36px; align-items:start}
 .act-card{background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column}
 .act-card .ph{height:200px; position:relative; overflow:hidden}
 .act-card .ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
@@ -38,10 +38,10 @@
 .f-field input,.f-field select,.f-field textarea{font-family:'Sora',sans-serif; font-size:14px; padding:11px 13px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); width:100%}
 .f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:2px solid var(--gold); border-color:var(--gold)}
 .f-error{color:#b4231a; font-size:12.5px; margin:-6px 0 12px}
-.success{background:#f2f8ec; border:1px solid #cde3b8; border-radius:14px; padding:26px; text-align:center; animation:success-in .45s ease}
+.success{scroll-margin-top:120px; background:#f2f8ec; border:1px solid #cde3b8; border-radius:14px; padding:26px; text-align:center; animation:success-in .45s ease}
 @keyframes success-in{from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none}}
 @media (prefers-reduced-motion: reduce){
-  .success{animation:none}
+  .success{scroll-margin-top:120px; animation:none}
 }
 .success h3{font-size:19px; margin-bottom:8px}
 .success p{color:var(--mut); font-size:14px}

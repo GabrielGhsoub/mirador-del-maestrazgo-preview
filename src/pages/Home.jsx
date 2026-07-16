@@ -66,7 +66,7 @@ export default function Home() {
           <p>Three welcoming holiday houses for up to 28 guests, in a quiet mountain village at the start of the Silent Route, inside the Maestrazgo UNESCO Global Geopark.</p>
           <div className="cta-row">
             <Link className="btn" to="/contact">Check availability</Link>
-            <a className="btn ghost" href="#houses">Explore the houses</a>
+            <Link className="btn ghost" to="/houses">Explore the houses</Link>
           </div>
           <div className="proof">
             <div><b>{SITE.scores.booking} / 10</b><span>Booking.com · {SITE.scores.bookingReviews} reviews</span></div>

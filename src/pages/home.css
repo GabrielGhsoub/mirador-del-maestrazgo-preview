@@ -92,3 +92,5 @@
   .scores{gap:16px}
   .scores strong{font-size:21px}
 }
+
+.hero .kick{text-shadow:0 1px 8px rgba(20,18,10,.6)}

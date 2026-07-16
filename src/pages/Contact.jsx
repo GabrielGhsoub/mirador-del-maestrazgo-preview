@@ -106,7 +106,7 @@ export default function Contact() {
               <div className="c-card">
                 <h4>Phone</h4>
                 <a href={SITE.phoneHref}>{phone}</a>
-                <p>Fernando answers personally.</p>
+                <p>Fernando and Mar answer personally.</p>
               </div>
               {waHref && (
                 <div className="c-card wa">

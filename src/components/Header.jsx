@@ -6,6 +6,13 @@ import './header.css'
 export default function Header() {
   const [open, setOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [langNote, setLangNote] = useState(false)
+
+  useEffect(() => {
+    if (!langNote) return
+    const t = setTimeout(() => setLangNote(false), 3800)
+    return () => clearTimeout(t)
+  }, [langNote])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -38,7 +45,9 @@ export default function Header() {
             <a href={`mailto:${SITE.email}`}>{SITE.email}</a>
           </div>
           <div className="langs">
-            <span className="on">EN</span><span>ES</span><span>FR</span>
+            <span className="on">EN</span>
+            <button type="button" className="lang-btn" onClick={() => setLangNote(true)}>ES</button>
+            <button type="button" className="lang-btn" onClick={() => setLangNote(true)}>FR</button>
           </div>
         </div>
       </div>
@@ -102,13 +111,18 @@ export default function Header() {
         </nav>
         <div className="drawer-bottom">
           <div className="langs drawer-langs">
-            <span className="on">EN</span><span>ES</span><span>FR</span>
+            <span className="on">EN</span>
+            <button type="button" className="lang-btn" onClick={() => setLangNote(true)}>ES</button>
+            <button type="button" className="lang-btn" onClick={() => setLangNote(true)}>FR</button>
           </div>
           <Link className="btn drawer-cta" to="/contact" onClick={close}>
             Check availability
           </Link>
         </div>
       </aside>
+      <div className={`lang-note ${langNote ? 'show' : ''}`} role="status" aria-live="polite">
+        This preview is in English. Español and Français are included in the full version.
+      </div>
     </>
   )
 }

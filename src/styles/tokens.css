@@ -9,7 +9,7 @@
   --mut:#6b675c; --line:#e7e4d9;
 }
 *{box-sizing:border-box; margin:0; padding:0}
-html,body{overflow-x:hidden; max-width:100%}
+html,body{overflow-x:clip; max-width:100%}
 body{font-family:'Sora',sans-serif; color:var(--ink); background:#fff; line-height:1.6}
 img{max-width:100%; display:block}
 a{text-decoration:none; color:inherit}

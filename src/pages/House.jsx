@@ -73,7 +73,7 @@ export default function House() {
     <>
       <div className="page-hero" style={{ backgroundImage: `url(${house.heroImage})` }}>
         <div className="wrap">
-          <div className="kick">Sleeps {house.capacity} · {SITE.name}</div>
+          <div className="kick">{house.capacity} · {SITE.name}</div>
           <h1>{house.name}</h1>
         </div>
       </div>
