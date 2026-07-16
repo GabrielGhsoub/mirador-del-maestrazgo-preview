@@ -5,7 +5,7 @@ import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
-const HERO = 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_12-scaled.jpg?lk=2'
+const HERO = 'img/c3547c-pajar-altaR_12-scaled.jpg'
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
