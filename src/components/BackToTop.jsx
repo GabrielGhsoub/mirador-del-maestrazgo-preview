@@ -28,6 +28,8 @@ export default function BackToTop() {
         if (p < 1) requestAnimationFrame(step)
       }
       requestAnimationFrame(step)
+      // safety net for throttled contexts where rAF cannot run
+      setTimeout(() => { if (window.scrollY > start * 0.5) window.scrollTo(0, 0) }, 450)
     }
     btn.addEventListener('click', scrollToTop)
     return () => btn.removeEventListener('click', scrollToTop)
