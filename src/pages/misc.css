@@ -1,8 +1,11 @@
-/* Shared styles for Activities / Location / About / Contact */
+/* Shared styles for Activities / Location / About / Contact
+   Shared .reveal / .img-fade / .hover-lift / .hover-zoom utilities are
+   defined once in home.css (bundled with every page, do not redefine). */
 
 .act-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:36px}
 .act-card{background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column}
-.act-card .ph{height:200px; background-size:cover; background-position:center}
+.act-card .ph{height:200px; position:relative; overflow:hidden}
+.act-card .ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
 .act-card .body{padding:22px}
 .act-card h3{font-size:17.5px; margin-bottom:8px}
 .act-card p{color:var(--mut); font-size:13.8px}

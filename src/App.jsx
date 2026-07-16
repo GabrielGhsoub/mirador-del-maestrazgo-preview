@@ -2,6 +2,8 @@ import { useEffect } from 'react'
 import { Routes, Route, useLocation, Navigate } from 'react-router-dom'
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+import MobileCta from './components/MobileCta.jsx'
+import BackToTop from './components/BackToTop.jsx'
 import Home from './pages/Home.jsx'
 import Houses from './pages/Houses.jsx'
 import House from './pages/House.jsx'
@@ -32,6 +34,8 @@ export default function App() {
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
       <Footer />
+      <MobileCta />
+      <BackToTop />
     </>
   )
 }

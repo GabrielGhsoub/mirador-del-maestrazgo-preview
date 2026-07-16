@@ -1,7 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SITE } from '../data/site.js'
+import content from '../data/content.json'
 import DirectStrip from '../components/DirectStrip.jsx'
+import usePageTitle from '../hooks/usePageTitle.js'
+import Reveal from '../hooks/useReveal.jsx'
 import './home.css'
 
 const HOUSES = [
@@ -35,18 +38,24 @@ const ACTIVITIES = [
   { n: '04', h: 'Dark skies', p: "Some of Europe's clearest night skies, next to a certified Starlight destination." },
 ]
 
-const FAQS = [
-  {
-    q: 'How do I get there?',
-    a: 'Ejulve is in the Maestrazgo Cultural Park, Teruel, at the start of the Silent Route. Search "Mirador del Maestrazgo" on Google Maps; access is easy and there is parking close to the houses.',
-  },
-  { q: 'Can I pay by card?', a: 'Ask us and we will be happy to help.' },
-  { q: 'What services are there in Ejulve?', a: 'Ask us and we will be happy to help.' },
-  { q: 'Are pets welcome?', a: 'Ask us and we will be happy to help.' },
-]
+function FadeImage({ src, alt, className = '', ...rest }) {
+  const [loaded, setLoaded] = useState(false)
+  return (
+    <img
+      src={src}
+      alt={alt}
+      className={`img-fade${loaded ? ' loaded' : ''}${className ? ' ' + className : ''}`}
+      onLoad={() => setLoaded(true)}
+      {...rest}
+    />
+  )
+}
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(0)
+  const faqs = content.faq || []
+
+  usePageTitle('Mirador del Maestrazgo | Rural houses in Ejulve, Teruel')
 
   return (
     <>
@@ -71,13 +80,17 @@ export default function Home() {
 
       <section className="houses bg-stone" id="houses">
         <div className="wrap">
-          <div className="sec-kick">Our houses</div>
-          <h2>Three houses, one quiet village</h2>
-          <p className="lede">Stay in lovingly restored village houses with fully equipped kitchens, cosy rooms and terraces looking out over the Maestrazgo.</p>
+          <Reveal>
+            <div className="sec-kick">Our houses</div>
+            <h2>Three houses, one quiet village</h2>
+            <p className="lede">Stay in lovingly restored village houses with fully equipped kitchens, cosy rooms and terraces looking out over the Maestrazgo.</p>
+          </Reveal>
           <div className="grid3">
             {HOUSES.map(house => (
-              <div className="house card" key={house.slug}>
-                <div className="ph" style={{ backgroundImage: `url('${house.img}')` }} />
+              <Reveal as="div" className="house card hover-lift hover-zoom" key={house.slug}>
+                <div className="ph">
+                  <FadeImage src={house.img} alt={house.name} />
+                </div>
                 <div className="body">
                   <div className="cap">{house.cap}</div>
                   <h3>{house.name}</h3>
@@ -87,14 +100,14 @@ export default function Home() {
                     <Link to={`/houses/${house.slug}`}>See the house →</Link>
                   </div>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
       </section>
 
       <section className="quote">
-        <div className="wrap">
+        <Reveal as="div" className="wrap">
           <blockquote>"What stays with you is <b>the warmth and kindness of the hosts</b>. Silence, comfortable beds, and the Maestrazgo on your doorstep."</blockquote>
           <div className="who">Guest review · Booking.com</div>
           <div className="scores">
@@ -103,21 +116,23 @@ export default function Home() {
             <div><strong>{SITE.scores.cleanliness}</strong><span>Cleanliness</span></div>
             <div><strong>{SITE.scores.capacity}</strong><span>Guests capacity</span></div>
           </div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="acts" id="activities">
         <div className="wrap">
-          <div className="sec-kick">The Maestrazgo</div>
-          <h2>Days that fill themselves</h2>
-          <p className="lede">Ejulve sits at the entrance to one of Spain's wildest and least crowded regions. From the front door:</p>
+          <Reveal>
+            <div className="sec-kick">The Maestrazgo</div>
+            <h2>Days that fill themselves</h2>
+            <p className="lede">Ejulve sits at the entrance to one of Spain's wildest and least crowded regions. From the front door:</p>
+          </Reveal>
           <div className="grid4">
             {ACTIVITIES.map(act => (
-              <div className="act" key={act.n}>
+              <Reveal as="div" className="act hover-lift" key={act.n}>
                 <span className="n">{act.n}</span>
                 <h3>{act.h}</h3>
                 <p>{act.p}</p>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>
@@ -125,25 +140,25 @@ export default function Home() {
 
       <section>
         <div className="wrap duo">
-          <div className="perk bg-stone">
+          <Reveal as="div" className="perk bg-stone">
             <div className="sec-kick">Only when you book direct</div>
             <h3>Check out later, enjoy one more afternoon</h3>
             <p>On request, keep your house until 6:00 pm on departure day for 50% of one night. Come back from your morning walk, shower, have lunch on the terrace and leave without hurry.</p>
             <div className="big">Best price guaranteed when you book on this website.</div>
-          </div>
-          <div className="about" style={{ backgroundImage: "linear-gradient(rgba(20,18,10,.2), rgba(20,18,10,.75)), url('https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/Comunes_01.jpg')" }}>
+          </Reveal>
+          <Reveal as="div" className="about" style={{ backgroundImage: "linear-gradient(rgba(20,18,10,.2), rgba(20,18,10,.75)), url('https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/Comunes_01.jpg')" }}>
             <h3>Fernando and Mar, your hosts</h3>
             <p>We look after every detail so you can enjoy the Maestrazgo in its purest state.</p>
             <div className="motto">"Come, and let us take care of you!"</div>
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="faq bg-stone">
-        <div className="wrap">
+        <Reveal as="div" className="wrap">
           <div className="sec-kick">Good to know</div>
           <h2>Frequent questions</h2>
-          {FAQS.map((item, i) => {
+          {faqs.map((item, i) => {
             const isOpen = openFaq === i
             return (
               <div className="qa" key={item.q}>
@@ -154,7 +169,7 @@ export default function Home() {
               </div>
             )
           })}
-        </div>
+        </Reveal>
       </section>
     </>
   )

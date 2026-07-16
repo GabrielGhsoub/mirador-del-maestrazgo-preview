@@ -1,5 +1,32 @@
 /* Home page, ported from MOCKUP-mirador-homepage-EN-2026-07-16.html */
 
+/* ---- Shared page polish (defined once here, used by every page) ----
+   .reveal / .reveal.in : scroll-in animation driven by useReveal / <Reveal>
+   .img-fade / .img-fade.loaded : image fade-in once loaded (onLoad handler)
+   .hover-lift : card lift + soft shadow on hover
+   .hover-zoom : pairs with an .img-fade inside to scale it on card hover
+   houses.css and misc.css rely on these classes without redefining them. */
+.reveal{opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease}
+.reveal.in{opacity:1; transform:none}
+
+.img-fade{opacity:0; transition:opacity .5s ease}
+.img-fade.loaded{opacity:1}
+
+.hover-lift{transition:transform .25s ease, box-shadow .25s ease}
+.hover-lift:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(28,26,20,.16)}
+
+.hover-zoom{overflow:hidden}
+.hover-zoom .img-fade{transition:opacity .5s ease, transform .25s ease}
+.hover-zoom:hover .img-fade{transform:scale(1.04)}
+
+@media (prefers-reduced-motion: reduce){
+  .reveal{opacity:1; transform:none; transition:none}
+  .hover-lift{transition:none}
+  .hover-lift:hover{transform:none}
+  .hover-zoom .img-fade{transition:opacity .5s ease}
+  .hover-zoom:hover .img-fade{transform:none}
+}
+
 /* hero */
 .hero{position:relative; min-height:560px; display:flex; align-items:flex-end;
   background-size:cover; background-position:center}
@@ -13,7 +40,8 @@
 
 /* houses */
 .house{display:flex; flex-direction:column}
-.house .ph{height:210px; background-size:cover; background-position:center}
+.house .ph{height:210px; position:relative; overflow:hidden}
+.house .ph img{position:absolute; inset:0; width:100%; height:100%; object-fit:cover}
 .house .body{padding:20px 20px 22px; display:flex; flex-direction:column; gap:8px; flex:1}
 .house h3{font-size:18.5px; font-weight:700}
 .house .cap{color:var(--gold-dark); font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase}
