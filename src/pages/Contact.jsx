@@ -1,6 +1,8 @@
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { SITE, HOUSE_LINKS } from '../data/site.js'
 import content from '../data/content.json'
+import usePageTitle from '../hooks/usePageTitle.js'
+import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
 const HERO = 'https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_12-scaled.jpg'
@@ -11,6 +13,15 @@ export default function Contact() {
   const { phone, email, whatsapp, note } = content.contact
   const waHref = whatsapp ? `https://wa.me/${whatsapp.replace(/[^0-9]/g, '')}` : null
   const today = new Date().toISOString().split('T')[0]
+  const successRef = useRef(null)
+
+  usePageTitle('Contact | Mirador del Maestrazgo')
+
+  useEffect(() => {
+    if (sent && successRef.current) {
+      successRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }, [sent])
 
   function onSubmit(e) {
     e.preventDefault()
@@ -35,12 +46,12 @@ export default function Contact() {
 
       <section>
         <div className="wrap">
-          <p className="lede">{note}</p>
+          <Reveal as="p" className="lede">{note}</Reveal>
 
           <div className="contact-grid">
-            <div className="form-card">
+            <Reveal as="div" className="form-card">
               {sent ? (
-                <div className="success">
+                <div className="success" ref={successRef}>
                   <h3>Thank you! Your request is on its way.</h3>
                   <p>We will reply within one working day with availability and the best direct price.</p>
                   <p style={{ marginTop: 10, fontSize: 12 }}>(This is a design preview: no data was sent.)</p>
@@ -89,9 +100,9 @@ export default function Contact() {
                   </form>
                 </>
               )}
-            </div>
+            </Reveal>
 
-            <div className="contact-aside">
+            <Reveal as="div" className="contact-aside">
               <div className="c-card">
                 <h4>Phone</h4>
                 <a href={SITE.phoneHref}>{phone}</a>
@@ -113,7 +124,7 @@ export default function Contact() {
                 <h4>Book direct, pay less</h4>
                 <p>Booking with us directly always gets you the best available price, with no platform commissions.</p>
               </div>
-            </div>
+            </Reveal>
           </div>
         </div>
       </section>
