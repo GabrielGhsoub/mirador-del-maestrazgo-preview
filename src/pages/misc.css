@@ -1,0 +1,52 @@
+/* Shared styles for Activities / Location / About / Contact */
+
+.act-grid{display:grid; grid-template-columns:1fr 1fr; gap:22px; margin-top:36px}
+.act-card{background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden; display:flex; flex-direction:column}
+.act-card .ph{height:200px; background-size:cover; background-position:center}
+.act-card .body{padding:22px}
+.act-card h3{font-size:17.5px; margin-bottom:8px}
+.act-card p{color:var(--mut); font-size:13.8px}
+
+.loc-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:26px; margin-top:36px; align-items:start}
+.loc-steps{display:flex; flex-direction:column; gap:12px}
+.loc-step{display:flex; gap:12px; align-items:flex-start; background:#fff; border:1px solid var(--line); border-radius:14px; padding:14px 16px}
+.loc-step .n{background:var(--gold); color:var(--ink); font-weight:800; font-size:12px; min-width:26px; height:26px; border-radius:99px; display:flex; align-items:center; justify-content:center; margin-top:2px}
+.loc-step p{color:#3c392e; font-size:13.8px}
+.map-card{border:1px solid var(--line); border-radius:18px; overflow:hidden; background:#fff}
+.map-card iframe{width:100%; height:380px; border:0; display:block}
+.map-card .map-foot{padding:14px 16px; display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap}
+.map-card .map-foot span{font-size:13px; color:var(--mut)}
+
+.about-wrap{max-width:760px}
+.about-wrap p{color:#3c392e; font-size:15.5px; margin-bottom:16px}
+.pull{border-left:4px solid var(--gold); background:var(--stone); border-radius:0 14px 14px 0; padding:20px 24px; font-size:20px; font-weight:700; color:var(--ink); margin:26px 0}
+.stat-row{display:flex; gap:34px; flex-wrap:wrap; margin-top:30px}
+.stat-row div{text-align:left}
+.stat-row strong{display:block; font-size:26px; color:var(--gold-dark); font-weight:800}
+.stat-row span{font-size:12px; color:var(--mut)}
+
+/* Contact / booking request */
+.contact-grid{display:grid; grid-template-columns:1.15fr .85fr; gap:26px; margin-top:36px; align-items:start}
+.form-card{background:#fff; border:1px solid var(--line); border-radius:18px; padding:26px}
+.form-card h3{font-size:18px; margin-bottom:16px}
+.f-row{display:grid; grid-template-columns:1fr 1fr; gap:14px}
+.f-field{display:flex; flex-direction:column; gap:6px; margin-bottom:14px}
+.f-field label{font-size:12.5px; font-weight:700; color:#3c392e}
+.f-field input,.f-field select,.f-field textarea{font-family:'Sora',sans-serif; font-size:14px; padding:11px 13px; border:1px solid var(--line); border-radius:10px; background:#fff; color:var(--ink); width:100%}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{outline:2px solid var(--gold); border-color:var(--gold)}
+.f-error{color:#b4231a; font-size:12.5px; margin:-6px 0 12px}
+.success{background:#f2f8ec; border:1px solid #cde3b8; border-radius:14px; padding:26px; text-align:center}
+.success h3{font-size:19px; margin-bottom:8px}
+.success p{color:var(--mut); font-size:14px}
+.contact-aside{display:flex; flex-direction:column; gap:14px}
+.c-card{background:var(--stone); border:1px solid var(--line); border-radius:16px; padding:20px}
+.c-card h4{font-size:14px; margin-bottom:4px}
+.c-card a{color:var(--gold-dark); font-weight:700; font-size:15px}
+.c-card p{color:var(--mut); font-size:12.8px; margin-top:4px}
+.c-card.wa a{color:#1f7a43}
+
+@media (max-width:900px){
+  .act-grid,.loc-grid,.contact-grid{grid-template-columns:1fr}
+  .f-row{grid-template-columns:1fr}
+  .map-card iframe{height:300px}
+}

@@ -1,0 +1,55 @@
+/* ============================================================
+   Mirador del Maestrazgo design system
+   Ported from the approved EN homepage mockup (2026-07-16).
+   Brand: Sora font, gold #bcb40e on warm ink/stone neutrals.
+   Every page component composes these classes; do not fork them.
+   ============================================================ */
+:root{
+  --gold:#bcb40e; --gold-dark:#9a940b; --ink:#1c1a14; --stone:#f6f5f0;
+  --mut:#6b675c; --line:#e7e4d9;
+}
+*{box-sizing:border-box; margin:0; padding:0}
+html,body{overflow-x:hidden; max-width:100%}
+body{font-family:'Sora',sans-serif; color:var(--ink); background:#fff; line-height:1.6}
+img{max-width:100%; display:block}
+a{text-decoration:none; color:inherit}
+.wrap{max-width:1160px; margin:0 auto; padding:0 24px}
+
+/* type + section scaffolding */
+section{padding:72px 0}
+.sec-kick{color:var(--gold-dark); font-weight:700; letter-spacing:.2em; text-transform:uppercase; font-size:11.5px; margin-bottom:10px}
+h2{font-size:clamp(24px,3vw,34px); font-weight:800; letter-spacing:-.02em; margin-bottom:12px}
+.lede{color:var(--mut); max-width:640px; font-size:15.5px}
+.bg-stone{background:var(--stone)}
+
+/* buttons */
+.btn{display:inline-block; background:var(--gold); color:var(--ink); font-weight:700; padding:14px 28px; border-radius:99px; font-size:15px; border:0; cursor:pointer}
+.btn:hover{background:var(--gold-dark); color:#fff}
+.btn.small{padding:9px 18px; font-size:13px}
+.btn.ghost{background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.65)}
+.btn.dark{background:var(--ink); color:#fff}
+.link-gold{color:var(--gold-dark); font-weight:700; font-size:13px}
+
+/* page hero (interior pages) */
+.page-hero{position:relative; min-height:320px; display:flex; align-items:flex-end; color:#fff;
+  background:linear-gradient(rgba(20,18,10,.3), rgba(20,18,10,.65)) center/cover}
+.page-hero .wrap{padding-top:60px; padding-bottom:36px; width:100%}
+.page-hero h1{font-size:clamp(28px,4vw,44px); font-weight:800; letter-spacing:-.02em}
+.kick{color:var(--gold); font-weight:700; letter-spacing:.22em; text-transform:uppercase; font-size:12px; margin-bottom:12px}
+
+/* cards */
+.card{background:#fff; border:1px solid var(--line); border-radius:18px; overflow:hidden}
+.grid2{display:grid; grid-template-columns:1fr 1fr; gap:22px}
+.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
+.grid4{display:grid; grid-template-columns:repeat(4,1fr); gap:18px}
+
+@media (max-width:900px){
+  .grid3,.grid2{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr 1fr}
+  section{padding:52px 0}
+}
+@media (max-width:520px){
+  .wrap{padding:0 16px}
+  .grid4{grid-template-columns:1fr}
+  .btn{padding:12px 20px; font-size:14px}
+}

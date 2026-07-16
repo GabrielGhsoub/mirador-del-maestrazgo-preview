@@ -1,0 +1,30 @@
+.topbar{background:var(--ink); color:#d9d6c8; font-size:12.5px}
+.topbar .wrap{display:flex; justify-content:space-between; align-items:center; padding-top:7px; padding-bottom:7px; gap:12px; flex-wrap:wrap}
+.topbar a{color:#fff}
+.topbar .sep{margin:0 8px}
+.langs{display:flex; gap:6px}
+.langs span{padding:2px 9px; border-radius:99px; border:1px solid #55523f; font-weight:600; font-size:11px; letter-spacing:.04em}
+.langs .on{background:var(--gold); color:var(--ink); border-color:var(--gold)}
+
+.site-header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50}
+.nav{display:flex; align-items:center; justify-content:space-between; padding:12px 24px; max-width:1160px; margin:0 auto; gap:18px}
+.brand img{height:52px; width:auto}
+.menu{display:flex; gap:24px; font-size:14.5px; font-weight:600; color:#3c392e}
+.menu a:hover{color:var(--gold-dark)}
+.menu a.active{color:var(--gold-dark)}
+.header-cta{display:flex; align-items:center; gap:12px}
+.burger{display:none; flex-direction:column; gap:4px; background:none; border:0; cursor:pointer; padding:6px}
+.burger span{width:22px; height:2.5px; background:var(--ink); border-radius:2px}
+
+@media (max-width:900px){
+  .menu{display:none; position:absolute; top:100%; left:0; right:0; background:#fff;
+    flex-direction:column; gap:0; border-bottom:1px solid var(--line); box-shadow:0 12px 24px rgba(0,0,0,.08)}
+  .menu.open{display:flex}
+  .menu a{padding:14px 24px; border-top:1px solid var(--line)}
+  .burger{display:flex}
+  .brand img{height:42px}
+}
+@media (max-width:520px){
+  .topbar .wrap{justify-content:center}
+  .nav{padding:10px 16px}
+}

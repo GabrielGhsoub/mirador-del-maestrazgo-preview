@@ -1,0 +1,218 @@
+{
+  "houses": [
+    {
+      "slug": "los-pajarcicos",
+      "name": "Los Pajarcicos",
+      "tagline": "Two old haylofts reborn as cosy apartments, El Lucero and El Torero",
+      "capacity": "Two apartments, up to 8 guests",
+      "description": [
+        "We restored two old haylofts and turned them into two apartments of around 50 square metres each, with a double bed in the main bedroom and a sofa bed in the lounge. They are called El Lucero and El Torero.",
+        "Each apartment has a full kitchen, a bathroom and a wood burning fireplace in the living and dining room. TV and free Wi-Fi are included, and both apartments share a charming 60 square metre terrace with a barbecue, perfect for enjoying the open air and the calm of the countryside.",
+        "El Torero sleeps guests in a king size double bed (150 x 200 cm), with a 120 cm sofa bed in the lounge. El Lucero has a double bed (150 x 200 cm) plus two 90 cm single beds.",
+        "Both apartments come with a heat pump and air conditioning, free Wi-Fi, a flat screen TV and a kitchen equipped with a fridge, microwave, toaster, coffee maker and utensils, so you can cook just as you would at home. Quality bed linen, towels, a hairdryer and an iron are included. Pets are welcome on request, with a supplement."
+      ],
+      "features": [
+        "Two independent apartments: El Lucero and El Torero",
+        "Around 50 m2 each",
+        "Wood burning fireplace in the lounge",
+        "Fully equipped kitchen with fridge, microwave, toaster and coffee maker",
+        "Full bathroom with towels included",
+        "Shared 60 m2 terrace with barbecue",
+        "Heat pump and air conditioning",
+        "Free Wi-Fi and flat screen TV",
+        "Quality bed linen, hairdryer and iron",
+        "Pets welcome on request (supplement applies)",
+        "Registered tourist apartments VT-TE 552"
+      ],
+      "images": [
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_13-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_03-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_04-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_05-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_06-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_07-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_08-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_09-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_14-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_15-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_16-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_17-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/torero1.jpeg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/Comunes_01-2.jpg"
+      ],
+      "heroImage": "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/pajar-altaR_13-scaled.jpg"
+    },
+    {
+      "slug": "la-casa-de-colores",
+      "name": "La Casa de Colores",
+      "tagline": "A welcoming rural guesthouse where every room has its own colour",
+      "capacity": "Four rooms, up to 10 guests",
+      "description": [
+        "La Casa de Colores is a welcoming rural guesthouse in Ejulve, a lovely village in the Maestrazgo of Teruel. It sleeps up to 10 guests in four independent rooms, each with its own bathroom, plus a shared kitchen and a shared terrace.",
+        "The Yellow Room is a spacious double in warm yellow tones, with a double bed with wooden headboards and its own private shower room. It is perfect for a couple looking to switch off in a peaceful setting.",
+        "The Blue Room is a bright, comfortable double with two single beds, fully equipped so you feel right at home.",
+        "The Green Room is a triple where green sets the tone, with a king size bed (150 x 200 cm), a large seating area with a sofa bed and a full bathroom. It is ideal for a couple with a child, or for three adults.",
+        "The Red Room is a junior family suite for three, with two single beds in a red themed space, a lounge with a sofa bed and a full bathroom.",
+        "The whole house shares a large terrace with a barbecue and two seating areas, and a shared kitchen equipped with a fridge, microwave and everything you need to cook as you would at home. A heat and cold pump keeps the house comfortable all year round, and every room comes with bed linen, towels, free Wi-Fi, air conditioning and TV. Please note that pets are not allowed in this house."
+      ],
+      "features": [
+        "Four independent rooms, each with a private bathroom",
+        "Yellow Room: double bed, sleeps 2",
+        "Blue Room: two single beds, sleeps 2",
+        "Green Room: king size bed and sofa bed, sleeps 3",
+        "Red Room: junior suite with two single beds and a lounge, sleeps 3",
+        "Shared kitchen with fridge, microwave and cookware",
+        "Large shared terrace with barbecue and two seating areas",
+        "Heat and cold pump for year round comfort",
+        "Free Wi-Fi, air conditioning and TV in every room",
+        "Bed linen and towels included",
+        "No pets in this house",
+        "Registered rural guesthouse CR-TE 734"
+      ],
+      "images": [
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/Mirador-2024-8.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAmarilla_01.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAmarilla_02.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAmarilla_03.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAzul_01.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAzul_04.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HAzul_05.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/clipboard-202505191051-pllgy.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/clipboard-202505191051-mbejh.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/clipboard-202505191051-nzy8s.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HRoja_02.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HRoja_05.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/HRoja_07.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/IMG_20250620_142146-1-scaled.jpg"
+      ],
+      "heroImage": "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/Mirador-2024-8.jpg"
+    },
+    {
+      "slug": "la-casa-del-gato",
+      "name": "La Casa del Gato",
+      "tagline": "A traditional village house, over a hundred years old, restored for today's comfort",
+      "capacity": "Whole house, 6 to 10 guests",
+      "description": [
+        "La Casa del Gato is a traditional home with more than a hundred years of history. We restored it to offer all the comfort and convenience of the 21st century while keeping the structure and building details of the 19th.",
+        "The house sleeps 6 to 10 guests in three bedrooms plus a chill out space, with three full bathrooms and an extra toilet. The living and dining room has a fireplace and a kitchen, and outside there is a private garden of around 70 square metres with a barbecue, where children can play while the grown ups enjoy the sun.",
+        "Heating is included and comes from the fireplace, which warms every room in the house. There is TV and Wi-Fi, a kitchen equipped with cookware, an oven and a microwave, and a washing machine. Towels are included, and pets are welcome. It is an ideal house for families and groups of friends.",
+        "All around you will find astonishing scenery and wild animals in impressive natural surroundings, with a wide choice of walking routes, mountain bike trails and multi adventure activities: a walk to the source of the river Pitarque, the walkways over the river Guadalope from Montoro de Mezquita to Aliaga, the Caleja del Huergo route and nearby viewpoints, the Crystal Caves (Grutas de Cristal) in Molinos, the Escucha mine and the mining museum in Andorra, not to mention the local gastronomy."
+      ],
+      "features": [
+        "Whole house for 6 to 10 guests",
+        "Three bedrooms plus a chill out space",
+        "Three full bathrooms and an extra toilet",
+        "Living and dining room with fireplace and kitchen",
+        "Private garden of around 70 m2 with barbecue",
+        "Fireplace heating that warms the whole house, included",
+        "TV and free Wi-Fi",
+        "Kitchen with oven and microwave, plus washing machine",
+        "Towels included",
+        "Pets welcome",
+        "Registered holiday home VT-TE 563"
+      ],
+      "images": [
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_25-2-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_01-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_04-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_05-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_06-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_07-1-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_08-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_11-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_13-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_14-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_15-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_16-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_22-scaled.jpg",
+        "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_23-scaled.jpg"
+      ],
+      "heroImage": "https://miradordelmaestrazgo.es/wp-content/uploads/2025/05/C.-gato-AltaR_25-2-scaled.jpg"
+    }
+  ],
+  "activities": {
+    "intro": "Discover the magic of the Maestrazgo: hiking routes, viewpoints with spectacular views and charming villages like Ejulve.",
+    "items": [
+      {
+        "title": "The Silent Route (Ruta del Silencio)",
+        "text": "The comarcas of Maestrazgo and Andorra Sierra de Arcos share the course of the A-1702 road, and along it runs the Silent Route. More than a route, it is an invitation to disconnect from the noise and reconnect with what matters. In the heart of the Maestrazgo it guides you along quiet paths, ancient woods and solitary viewpoints where the silence says it all. No phones, no hurry, no distractions: mindful walking through inspiring natural scenery, with stops to breathe, observe and simply feel. At every step the landscape speaks without words, in the crunch of leaves, the wind through the pines and the distant echo of the mountains. It is an experience for those seeking something authentic, intimate and quietly transformative.",
+        "image": "https://miradordelmaestrazgo.es/wp-content/uploads/elementor/thumbs/silent-18-r6v3qfzrzd70evq2f8ljd2hm21bvs7nwjd0rg90ink.jpg"
+      },
+      {
+        "title": "Escucha Mining Museum",
+        "text": "Step into the shoes of a miner at a genuine coal mine. The visit begins with a ride in a mine wagon down to a depth of two hundred metres. Once below, you will see the tools once used to dig out the coal and walk a long tunnel of wooden and metal props leading to the main gallery. A turn to the left brings you to the only natural coal face open to visitors in any museum in Spain. An unforgettable experience, especially for the little ones.",
+        "image": "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/museo-minero2.png"
+      },
+      {
+        "title": "Adventure underground",
+        "text": "Beneath the rocky landscapes you can admire from the Mirador del Maestrazgo hides a silent, fascinating world: ancient caves, unique geological formations and a stillness that wraps around everything. This guided experience takes you into the depths of the land, where nature has carved its work in the dark.",
+        "image": null
+      },
+      {
+        "title": "Local flavours with identity",
+        "text": "Taste the Maestrazgo through its producers. Cárnicas Ortín makes artisan cured meats and fresh meat with care, using quality produce from the area. Quesos Los Santanales crafts goat cheeses in the traditional way, with the authentic flavour of the Maestrazgo.",
+        "image": null
+      },
+      {
+        "title": "Hiking routes",
+        "text": "The Maestrazgo is a paradise for walkers, nature in its purest state. Its trails cross woods, ravines, viewpoints and charming villages, linking landscape and culture at every step. From family strolls to more demanding routes, every walker finds their path here. Our advice: walk without hurry, listen to the sounds around you and let nature set the pace.",
+        "image": "https://miradordelmaestrazgo.es/wp-content/uploads/2025/06/mirador-skyline-1-q6hot2ghyie907faufv5zszqqs5gd3jslrbzssno2o.jpg"
+      },
+      {
+        "title": "MotorLand and big thrills",
+        "text": "Just a few kilometres away, the international MotorLand Aragón circuit offers a unique experience for motor sport fans: MotoGP races, sporting events, open track days and activities for the whole family in a first class venue. Combine your rural escape with a dose of speed. Nature and motor sport, two ways to feel the Maestrazgo intensely.",
+        "image": null
+      }
+    ]
+  },
+  "location": {
+    "intro": "Ejulve is a small corner of the Maestrazgo in the province of Teruel, surrounded by overflowing nature. Close by you will find the Aliaga Geological Park, the Valloré walkways at Montoro de Mezquita, the Órganos de Montoro and the source of the river Pitarque (both Natural Monuments), the Crystal Caves in Molinos and the river Guadalope, whose cold, clear water is perfect for a swim. Culture lovers can explore the rock art, Iberian sites and Buñuel legacy of the Bajo Aragón, the Drum and Bass Drum Route (Ruta del Tambor y el Bombo), the Petrified Forest (a Dinópolis site) and the Maestrazgo interpretation centre in Ejulve itself. Walkers have the Masías de Ejulve network with 70 km of waymarked trails, the GR-8 long distance path and the Río Martín Cultural Park, and the surrounding comarcas add the Escucha Mining Museum, the Carpentry and Forge Museum, the Bread Museum and an astronomical observatory.",
+    "howToGet": [
+      "Ejulve sits in the Maestrazgo Cultural Park in Teruel, surrounded by nature, right at the start of the Silent Route (Ruta del Silencio).",
+      "In Google Maps, search for Mirador del Maestrazgo Los Pajarcicos, La Casa de Colores or La Casa del Gato.",
+      "Access is easy and there is parking close to the houses.",
+      "Los Pajarcicos: Calle la Pila 4, 44559 Ejulve, Teruel.",
+      "La Casa de Colores: Calle la Pila 6 to 8, 44559 Ejulve, Teruel.",
+      "La Casa del Gato: Calle San Roque 21, 44559 Ejulve, Teruel."
+    ],
+    "address": "44559 Ejulve, Teruel, Spain",
+    "gmapsQuery": "Mirador del Maestrazgo Ejulve"
+  },
+  "about": {
+    "paras": [
+      "In Ejulve, a small village in Teruel at the gateway to the Maestrazgo, you will find the Mirador del Maestrazgo: three rural holiday homes with room for 28 guests in total.",
+      "We would love you to enjoy the calm of the Teruel highlands and their wild, surprising nature. That is why we offer our rural houses and rooms, each with its own kitchen, so you can settle in and feel at home.",
+      "Book directly through our website and you always get the best available price. You avoid platform commissions and gain access to offers you will only find here.",
+      "Fernando, your host, puts all his effort into making guests comfortable so they can enjoy the Maestrazgo in its purest state."
+    ],
+    "motto": "Come, and let us take care of you!"
+  },
+  "contact": {
+    "phone": "+34 978 75 28 08",
+    "email": "info@miradordelmaestrazgo.es",
+    "whatsapp": "+34 626 29 80 02",
+    "note": "We are happy to help with your booking, answer any questions or share recommendations to make your stay unforgettable. You can reach us by phone, email or WhatsApp, and we answer around the clock."
+  },
+  "faq": [
+    {
+      "q": "How do we get there?",
+      "a": "Ejulve is in the Maestrazgo Cultural Park in Teruel, surrounded by nature, at the start of the Silent Route (Ruta del Silencio). In Google Maps, search for Mirador del Maestrazgo Los Pajarcicos, La Casa de Colores or La Casa del Gato. Access is easy and there is parking close by."
+    },
+    {
+      "q": "What services are there in Ejulve?",
+      "a": "In the village you will find a pharmacy and two food shops with local produce, as well as two bars."
+    },
+    {
+      "q": "Can we pay by card?",
+      "a": "Yes. Keep in mind, though, that most shops in the area do not take cards, so it is worth bringing some cash for your stay."
+    },
+    {
+      "q": "What can we do in the area?",
+      "a": "From the Mirador del Maestrazgo you can enjoy hiking routes, watch the local wildlife and plants, or simply switch off in a unique rural setting. You can also visit the Órganos de Montoro, go out on a bike ride or explore the charming villages nearby."
+    },
+    {
+      "q": "What are the rules on pets?",
+      "a": "Pets are welcome at Los Pajarcicos and La Casa del Gato, but not at La Casa de Colores. Supplements may apply, so please always check with us before booking."
+    }
+  ]
+}

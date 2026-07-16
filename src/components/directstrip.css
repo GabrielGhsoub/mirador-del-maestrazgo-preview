@@ -1,0 +1,5 @@
+.direct{background:var(--gold)}
+.direct .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:16px; padding-bottom:16px; flex-wrap:wrap}
+.direct p{font-weight:700; font-size:15.5px; color:var(--ink)}
+.direct span{font-weight:400; font-size:13.5px; display:block; color:#4c4808}
+.direct .btn{font-size:13.5px; padding:11px 22px; white-space:nowrap}

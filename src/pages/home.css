@@ -1,0 +1,66 @@
+/* Home page, ported from MOCKUP-mirador-homepage-EN-2026-07-16.html */
+
+/* hero */
+.hero{position:relative; min-height:560px; display:flex; align-items:flex-end;
+  background-size:cover; background-position:center}
+.hero-inner{color:#fff; padding:70px 0 46px; width:100%}
+.hero h1{font-size:clamp(30px,4.6vw,52px); line-height:1.08; font-weight:800; letter-spacing:-.02em; max-width:760px; margin-bottom:16px}
+.hero p{font-size:clamp(15px,1.6vw,18px); max-width:620px; color:#efece0; font-weight:300; margin-bottom:26px}
+.cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px}
+.proof{display:flex; gap:26px; flex-wrap:wrap; font-size:13px; color:#e9e6d6}
+.proof b{color:#fff; font-size:15px}
+.proof div{display:flex; flex-direction:column; gap:1px}
+
+/* houses */
+.house{display:flex; flex-direction:column}
+.house .ph{height:210px; background-size:cover; background-position:center}
+.house .body{padding:20px 20px 22px; display:flex; flex-direction:column; gap:8px; flex:1}
+.house h3{font-size:18.5px; font-weight:700}
+.house .cap{color:var(--gold-dark); font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase}
+.house p{color:var(--mut); font-size:13.8px; flex:1}
+.house .links{display:flex; gap:10px; margin-top:8px}
+.house .links a:first-child{background:var(--gold); color:var(--ink); font-weight:700; padding:9px 18px; border-radius:99px; font-size:13px}
+.house .links a:last-child{color:var(--gold-dark); font-weight:700; font-size:13px; padding:9px 4px}
+
+/* quote band */
+.quote{background:var(--ink); color:#fff; text-align:center}
+.quote blockquote{font-size:clamp(19px,2.6vw,27px); font-weight:300; max-width:760px; margin:0 auto 14px; line-height:1.45}
+.quote b{color:var(--gold)}
+.quote .who{color:#b6b2a0; font-size:13px}
+.scores{display:flex; justify-content:center; gap:38px; margin-top:30px; flex-wrap:wrap}
+.scores div{text-align:center}
+.scores strong{display:block; font-size:26px; color:var(--gold); font-weight:800}
+.scores span{font-size:12px; color:#b6b2a0}
+
+/* activities */
+.acts .grid4{margin-top:36px}
+.act{border:1px solid var(--line); border-radius:16px; padding:22px; background:#fff}
+.act .n{color:var(--gold-dark); font-weight:800; font-size:13px; letter-spacing:.1em; margin-bottom:10px; display:block}
+.act h3{font-size:16px; margin-bottom:6px}
+.act p{color:var(--mut); font-size:13.2px}
+
+/* perk + about duo */
+.duo{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:stretch}
+.perk{border:1px solid var(--line); border-radius:18px; padding:30px}
+.perk h3{font-size:19px; margin-bottom:8px}
+.perk p{color:var(--mut); font-size:14.5px}
+.perk .big{color:var(--gold-dark); font-weight:800; font-size:15px; margin-top:12px}
+.about{border-radius:18px; padding:30px; color:#fff; display:flex; flex-direction:column; justify-content:flex-end; min-height:280px; background-size:cover; background-position:center}
+.about h3{font-size:19px; margin-bottom:6px}
+.about p{font-size:14px; color:#efece0}
+.about .motto{color:var(--gold); font-weight:700; margin-top:10px}
+
+/* faq */
+.qa{border-bottom:1px solid var(--line); padding:16px 0; cursor:pointer}
+.qa h3{font-size:15.5px; display:flex; justify-content:space-between; gap:10px; cursor:pointer}
+.qa h3 span{color:var(--gold-dark)}
+.qa p{color:var(--mut); font-size:13.8px; margin-top:8px; max-width:820px; cursor:default}
+
+@media (max-width:900px){
+  .hero{min-height:480px}
+}
+@media (max-width:520px){
+  .proof{gap:16px}
+  .scores{gap:16px}
+  .scores strong{font-size:21px}
+}
