@@ -23,7 +23,39 @@
   .house-card .hc-media{min-height:220px}
 }
 
+/* clickable card: whole card opens the quick view modal */
+.house-card.hc-click{cursor:pointer;
+  transition:transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s cubic-bezier(.22,.61,.36,1)}
+.house-card.hc-click:hover{transform:translateY(-3px); box-shadow:0 16px 36px rgba(28,26,20,.14)}
+.house-card .hc-media .img-fade{transition:opacity .5s ease, transform .4s cubic-bezier(.22,.61,.36,1)}
+.house-card.hc-click:hover .hc-media .img-fade{transform:scale(1.03)}
+
+/* "Quick view" affordance, appears on card hover or keyboard focus */
+.hc-quick{position:absolute; left:50%; top:50%; z-index:2;
+  transform:translate(-50%, calc(-50% + 6px)); opacity:0; pointer-events:none;
+  background:rgba(255,255,255,.94); color:var(--ink); border:0; border-radius:99px;
+  padding:10px 22px; font-family:inherit; font-weight:700; font-size:13px; cursor:pointer;
+  box-shadow:0 8px 24px rgba(28,26,20,.25);
+  transition:opacity .3s ease, transform .3s ease}
+.house-card.hc-click:hover .hc-quick,
+.hc-quick:focus-visible{opacity:1; pointer-events:auto; transform:translate(-50%,-50%)}
+
+@media (prefers-reduced-motion:reduce){
+  .house-card.hc-click{transition:none}
+  .house-card.hc-click:hover{transform:none}
+  .house-card.hc-click:hover .hc-media .img-fade{transform:none}
+  .hc-quick{transition:opacity .3s ease; transform:translate(-50%,-50%)}
+}
+
 /* ---- House detail ---- */
+
+/* hero: gentle one-time scale settle on load (background layer only, text stays still) */
+.house-hero{overflow:hidden}
+.house-hero-bg{position:absolute; inset:0; background-size:cover; background-position:center;
+  transform-origin:center; animation:heroSettle 1.2s ease-out both}
+.house-hero .wrap{position:relative; z-index:1}
+@keyframes heroSettle{from{transform:scale(1.03)} to{transform:scale(1)}}
+
 .house-detail-body{padding-top:56px; padding-bottom:8px}
 .house-copy{max-width:760px}
 .house-copy p{color:var(--mut); font-size:15.5px; margin-bottom:16px}
@@ -36,6 +68,9 @@
 }
 
 .gallery{display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-top:24px}
+/* staggered tile fade-in once the grid scrolls into view (delay set inline per tile) */
+.gallery .g-item{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
+.gallery.g-in .g-item{opacity:1; transform:none}
 .gallery button.g-item{padding:0; border:0; background:none; cursor:zoom-in; border-radius:12px; overflow:hidden; aspect-ratio:4/3; display:block}
 .gallery button.g-item img{width:100%; height:100%; object-fit:cover; transition:transform .25s ease, opacity .5s ease}
 .gallery button.g-item:hover img{transform:scale(1.04)}
@@ -45,11 +80,26 @@
 @media (max-width:520px){
   .gallery{grid-template-columns:1fr 1fr; gap:10px}
 }
+@media (prefers-reduced-motion:reduce){
+  .gallery .g-item{opacity:1; transform:none; transition:none}
+}
 
 /* lightbox */
 .lightbox{position:fixed; inset:0; background:rgba(12,10,6,.92); z-index:200;
   display:flex; align-items:center; justify-content:center; padding:24px}
-.lightbox img{max-width:100%; max-height:82vh; border-radius:8px; object-fit:contain}
+/* photo stage: keyed frame fades in over the previous photo (200ms crossfade) */
+.lb-stage{position:relative; max-width:100%; max-height:82vh;
+  display:flex; align-items:center; justify-content:center}
+.lb-stage img{max-width:100%; max-height:82vh; border-radius:8px; object-fit:contain}
+.lb-frame{max-width:100%; max-height:82vh; display:flex; align-items:center; justify-content:center;
+  animation:lbFrameIn .2s ease both}
+@keyframes lbFrameIn{from{opacity:0} to{opacity:1}}
+.lb-frame .img-fade{transition:opacity .2s ease}
+.lb-stage .lb-under{position:absolute; inset:0; margin:auto; width:100%; height:100%; object-fit:contain}
+@media (prefers-reduced-motion:reduce){
+  .lb-frame{animation:none}
+  .house-hero-bg{animation:none}
+}
 .lightbox .lb-close{position:absolute; top:20px; right:24px; background:none; border:0; color:#fff; font-size:32px; line-height:1; cursor:pointer}
 .lightbox .lb-nav{position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.12); border:0; color:#fff;
   font-size:22px; width:48px; height:48px; border-radius:50%; cursor:pointer}

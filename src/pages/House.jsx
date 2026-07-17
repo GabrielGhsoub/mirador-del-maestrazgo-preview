@@ -1,37 +1,48 @@
+import { imgFadeRef, imgFadeLoad } from '../hooks/imgFade.js'
 import { useEffect, useRef, useState } from 'react'
 import { useParams, Navigate, Link } from 'react-router-dom'
 import { SITE } from '../data/site.js'
 import content from '../data/content.json'
 import DirectStrip from '../components/DirectStrip.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
-import Reveal from '../hooks/useReveal.jsx'
+import Reveal, { useReveal } from '../hooks/useReveal.jsx'
 import './houses.css'
 
 const SWIPE_THRESHOLD = 40
 
-function handleImgLoad(e) {
-  e.currentTarget.classList.add('loaded')
-}
+// Grid tiles use the pre-generated thumbnail variant; the lightbox keeps
+// the full-size original.
+const thumbSrc = src => src.replace(/^img\//, 'img/t/')
 
 export default function House() {
   const { slug } = useParams()
   const houses = content.houses || []
   const house = houses.find(h => h.slug === slug)
   const [lightboxIndex, setLightboxIndex] = useState(null)
+  const [lbUnder, setLbUnder] = useState(null)
   const touchStartX = useRef(null)
+  const [galleryRef, galleryIn] = useReveal()
 
   usePageTitle(house ? `${house.name} | Mirador del Maestrazgo` : 'Mirador del Maestrazgo')
 
   const images = house ? house.images || [] : []
 
-  const openLightbox = i => setLightboxIndex(i)
-  const closeLightbox = () => setLightboxIndex(null)
+  const openLightbox = i => {
+    setLbUnder(null)
+    setLightboxIndex(i)
+  }
+  const closeLightbox = () => {
+    setLbUnder(null)
+    setLightboxIndex(null)
+  }
   const showPrev = e => {
     if (e) e.stopPropagation()
+    setLbUnder(images[lightboxIndex])
     setLightboxIndex(i => (i - 1 + images.length) % images.length)
   }
   const showNext = e => {
     if (e) e.stopPropagation()
+    setLbUnder(images[lightboxIndex])
     setLightboxIndex(i => (i + 1) % images.length)
   }
 
@@ -56,6 +67,13 @@ export default function House() {
     preload.src = nextSrc
   }, [lightboxIndex, images])
 
+  // Drop the crossfade underlay once the incoming photo has faded in.
+  useEffect(() => {
+    if (!lbUnder) return undefined
+    const t = setTimeout(() => setLbUnder(null), 240)
+    return () => clearTimeout(t)
+  }, [lbUnder])
+
   const onTouchStart = e => {
     touchStartX.current = e.touches[0].clientX
   }
@@ -71,7 +89,12 @@ export default function House() {
 
   return (
     <>
-      <div className="page-hero" style={{ backgroundImage: `url(${house.heroImage})` }}>
+      <div className="page-hero house-hero">
+        <div
+          className="house-hero-bg"
+          style={{ backgroundImage: `linear-gradient(rgba(20,18,10,.3), rgba(20,18,10,.65)), url(${house.heroImage})` }}
+          aria-hidden="true"
+        />
         <div className="wrap">
           <div className="kick">{house.capacity} · {SITE.name}</div>
           <h1>{house.name}</h1>
@@ -101,16 +124,17 @@ export default function House() {
               <div className="sec-kick">Gallery</div>
               <h2>Inside {house.name}</h2>
             </Reveal>
-            <div className="gallery">
+            <div className={`gallery${galleryIn ? ' g-in' : ''}`} ref={galleryRef}>
               {images.map((src, i) => (
                 <button
                   key={i}
                   type="button"
                   className="g-item"
+                  style={{ transitionDelay: `${Math.min(i * 55, 440)}ms` }}
                   onClick={() => openLightbox(i)}
                   aria-label={`View photo ${i + 1} of ${house.name}`}
                 >
-                  <img src={src} alt={`${house.name} photo ${i + 1}`} loading="lazy" className="img-fade" onLoad={handleImgLoad} />
+                  <img src={thumbSrc(src)} alt={`${house.name} photo ${i + 1}`} loading="lazy" className="img-fade" onLoad={imgFadeLoad} ref={imgFadeRef} />
                 </button>
               ))}
             </div>
@@ -129,11 +153,21 @@ export default function House() {
           {images.length > 1 && (
             <button type="button" className="lb-nav lb-prev" onClick={showPrev} aria-label="Previous photo">&#8249;</button>
           )}
-          <img
-            src={images[lightboxIndex]}
-            alt={`${house.name} photo ${lightboxIndex + 1}`}
-            onClick={e => e.stopPropagation()}
-          />
+          <div className="lb-stage" onClick={e => e.stopPropagation()}>
+            {lbUnder && (
+              <img className="lb-under" src={lbUnder} alt="" aria-hidden="true" />
+            )}
+            {/* Keyed frame fades in over the previous photo: a 200ms crossfade */}
+            <div className="lb-frame" key={images[lightboxIndex]}>
+              <img
+                src={images[lightboxIndex]}
+                alt={`${house.name} photo ${lightboxIndex + 1}`}
+                className="img-fade"
+                ref={imgFadeRef}
+                onLoad={imgFadeLoad}
+              />
+            </div>
+          </div>
           {images.length > 1 && (
             <button type="button" className="lb-nav lb-next" onClick={showNext} aria-label="Next photo">&#8250;</button>
           )}

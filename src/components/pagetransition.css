@@ -1,0 +1,14 @@
+/* Page transition: the incoming view glides in (fade + 7px rise).
+   "both" fill keeps frame 0 applied before the animation starts,
+   so the page never flashes fully-rendered then re-animates. */
+.page-glide{
+  animation:page-glide-in .32s cubic-bezier(.22,.61,.36,1) both;
+  will-change:opacity, transform;
+}
+@keyframes page-glide-in{
+  from{opacity:0; transform:translateY(7px)}
+  to{opacity:1; transform:none}
+}
+@media (prefers-reduced-motion: reduce){
+  .page-glide{animation:none}
+}

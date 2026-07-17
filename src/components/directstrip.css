@@ -1,5 +1,9 @@
-.direct{background:var(--gold)}
+.direct{
+  background:var(--gold);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.25), inset 0 -1px 0 rgba(20,18,10,.1);
+}
 .direct .wrap{display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:16px; padding-bottom:16px; flex-wrap:wrap}
 .direct p{font-weight:700; font-size:15.5px; color:var(--ink)}
-.direct span{font-weight:400; font-size:13.5px; display:block; color:#4c4808}
-.direct .btn{font-size:13.5px; padding:11px 22px; white-space:nowrap}
+.direct span{font-weight:400; font-size:12.5px; display:block; margin-top:2px; color:rgba(28,26,20,.62)}
+.direct .btn{font-size:13.5px; padding:11px 22px; white-space:nowrap; transition:background .2s ease, transform .15s ease}
+.direct .btn:active{transform:translateY(1px)}

@@ -1,3 +1,4 @@
+import { imgFadeRef, imgFadeLoad } from '../hooks/imgFade.js'
 import { Link } from 'react-router-dom'
 import DirectStrip from '../components/DirectStrip.jsx'
 import content from '../data/content.json'
@@ -5,7 +6,10 @@ import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
-const HERO = 'img/8808dd-mirador-skyline-1-q6hot2ghyie907faufv5zszqqs5gd3jslrbzssno2o.jpg'
+const HERO = 'img/m/8808dd-mirador-skyline-1-q6hot2ghyie907faufv5zszqqs5gd3jslrbzssno2o.jpg'
+
+// content.json stores full-size paths; cards only need the 560w thumbnail
+const thumb = src => src.replace(/^img\//, 'img/t/')
 
 function handleImgLoad(e) {
   e.currentTarget.classList.add('loaded')
@@ -29,11 +33,11 @@ export default function Activities() {
         <div className="wrap">
           <Reveal as="p" className="lede">{intro}</Reveal>
           <div className="act-grid">
-            {items.map(item => (
-              <Reveal as="div" className="act-card hover-lift" key={item.title}>
+            {items.map((item, i) => (
+              <Reveal as="div" className="act-card hover-lift" key={item.title} delay={(i % 2) * 60}>
                 {item.image && (
                   <div className="ph hover-zoom">
-                    <img src={item.image} alt={item.title} loading="lazy" className="img-fade" onLoad={handleImgLoad} />
+                    <img src={thumb(item.image)} alt={item.title} loading="lazy" className="img-fade" onLoad={imgFadeLoad} ref={imgFadeRef} />
                   </div>
                 )}
                 <div className="body">

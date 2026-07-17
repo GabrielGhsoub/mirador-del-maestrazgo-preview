@@ -6,18 +6,20 @@
    .hover-lift : card lift + soft shadow on hover
    .hover-zoom : pairs with an .img-fade inside to scale it on card hover
    houses.css and misc.css rely on these classes without redefining them. */
-.reveal{opacity:0; transform:translateY(18px); transition:opacity .55s ease, transform .55s ease}
+.reveal{opacity:.01; transform:translateY(8px);
+  transition:opacity .42s cubic-bezier(.22,.61,.36,1), transform .42s cubic-bezier(.22,.61,.36,1);
+  transition-delay:var(--d,0ms)}
 .reveal.in{opacity:1; transform:none}
 
 .img-fade{opacity:0; transition:opacity .5s ease}
 .img-fade.loaded{opacity:1}
 
-.hover-lift{transition:transform .25s ease, box-shadow .25s ease}
-.hover-lift:hover{transform:translateY(-4px); box-shadow:0 18px 40px rgba(28,26,20,.16)}
+.hover-lift{transition:transform .3s cubic-bezier(.22,.61,.36,1), box-shadow .3s cubic-bezier(.22,.61,.36,1)}
+.hover-lift:hover{transform:translateY(-3px); box-shadow:0 24px 48px rgba(28,26,20,.1)}
 
 .hover-zoom{overflow:hidden}
-.hover-zoom .img-fade{transition:opacity .5s ease, transform .25s ease}
-.hover-zoom:hover .img-fade{transform:scale(1.04)}
+.hover-zoom .img-fade{transition:opacity .5s ease, transform .4s cubic-bezier(.22,.61,.36,1)}
+.hover-zoom:hover .img-fade{transform:scale(1.03)}
 
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1; transform:none; transition:none}
@@ -28,9 +30,23 @@
 }
 
 /* hero */
-.hero{position:relative; min-height:560px; display:flex; align-items:flex-end;
-  background-size:cover; background-position:center}
-.hero-inner{color:#fff; padding:70px 0 46px; width:100%}
+.hero{position:relative; min-height:560px; display:flex; align-items:flex-end; overflow:hidden}
+.hero-bg{position:absolute; inset:0; background-size:cover; background-position:center;
+  animation:hero-settle 1.2s cubic-bezier(.22,.61,.36,1) both; will-change:transform}
+@keyframes hero-settle{from{transform:scale(1.03)} to{transform:scale(1)}}
+.hero-inner{position:relative; color:#fff; padding:70px 0 46px; width:100%}
+
+/* gentle 3-step hero entrance: kicker, then h1, then sub + ctas (+ proof) */
+.hero .kick,.hero h1,.hero p,.hero .cta-row,.hero .proof{
+  animation:hero-rise .5s cubic-bezier(.22,.61,.36,1) both}
+.hero h1{animation-delay:.08s}
+.hero p,.hero .cta-row,.hero .proof{animation-delay:.16s}
+@keyframes hero-rise{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:none}}
+
+@media (prefers-reduced-motion: reduce){
+  .hero-bg{animation:none}
+  .hero .kick,.hero h1,.hero p,.hero .cta-row,.hero .proof{animation:none}
+}
 .hero h1{font-size:clamp(30px,4.6vw,52px); line-height:1.08; font-weight:800; letter-spacing:-.02em; max-width:760px; margin-bottom:16px}
 .hero p{font-size:clamp(15px,1.6vw,18px); max-width:620px; color:#efece0; font-weight:300; margin-bottom:26px}
 .cta-row{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:30px}
@@ -47,8 +63,12 @@
 .house .cap{color:var(--gold-dark); font-size:12.5px; font-weight:700; letter-spacing:.06em; text-transform:uppercase}
 .house p{color:var(--mut); font-size:13.8px; flex:1}
 .house .links{display:flex; gap:10px; margin-top:8px}
-.house .links a:first-child{background:var(--gold); color:var(--ink); font-weight:700; padding:9px 18px; border-radius:99px; font-size:13px}
-.house .links a:last-child{color:var(--gold-dark); font-weight:700; font-size:13px; padding:9px 4px}
+.house .links a:first-child{background:var(--gold); color:var(--ink); font-weight:700; padding:9px 18px; border-radius:99px; font-size:13px;
+  transition:background-color .18s ease, color .18s ease, transform .18s ease}
+.house .links a:first-child:hover{background:var(--gold-dark); color:#fff}
+.house .links a:first-child:active{transform:translateY(1px)}
+.house .links a:last-child{color:var(--gold-dark); font-weight:700; font-size:13px; padding:9px 4px; transition:color .18s ease}
+.house .links a:last-child:hover{color:var(--ink)}
 
 /* quote band */
 .quote{background:var(--ink); color:#fff; text-align:center}

@@ -46,11 +46,15 @@ export function useReveal(threshold = 0.12) {
 
 // Component form: wrap any block to reveal it as it scrolls into view.
 // <Reveal as="section" className="acts"> ... </Reveal>
-export default function Reveal({ as: Tag = 'div', className = '', threshold = 0.12, children, ...rest }) {
+// Stagger: pass delay={i * 50} (ms) on grid children so cards cascade
+// instead of popping together. It sets the --d custom property consumed
+// by .reveal's transition-delay; a parent can also set --d directly.
+export default function Reveal({ as: Tag = 'div', className = '', threshold = 0.12, delay = 0, style, children, ...rest }) {
   const [ref, inView] = useReveal(threshold)
   const cls = ['reveal', inView ? 'in' : '', className].filter(Boolean).join(' ')
+  const mergedStyle = delay ? { '--d': `${delay}ms`, ...style } : style
   return (
-    <Tag ref={ref} className={cls} {...rest}>
+    <Tag ref={ref} className={cls} style={mergedStyle} {...rest}>
       {children}
     </Tag>
   )

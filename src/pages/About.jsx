@@ -5,7 +5,7 @@ import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
-const HERO = 'img/d0d4d9-Comunes_01.jpg'
+const HERO = 'img/m/d0d4d9-Comunes_01.jpg'
 
 export default function About() {
   const { paras, motto } = content.about

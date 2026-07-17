@@ -5,7 +5,7 @@ import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
-const HERO = 'img/c3547c-pajar-altaR_12-scaled.jpg'
+const HERO = 'img/m/c3547c-pajar-altaR_12-scaled.jpg'
 
 export default function Contact() {
   const [sent, setSent] = useState(false)
@@ -102,7 +102,7 @@ export default function Contact() {
               )}
             </Reveal>
 
-            <Reveal as="div" className="contact-aside">
+            <Reveal as="div" className="contact-aside" delay={80}>
               <div className="c-card">
                 <h4>Phone</h4>
                 <a href={SITE.phoneHref}>{phone}</a>

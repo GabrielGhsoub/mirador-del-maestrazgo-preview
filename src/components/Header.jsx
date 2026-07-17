@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink } from 'react-router-dom'
 import { SITE, NAV } from '../data/site.js'
+import { prefetchRoute } from '../routes.js'
 import './header.css'
 
 export default function Header() {
@@ -58,14 +59,14 @@ export default function Header() {
           </Link>
           <nav className="menu">
             {NAV.map(item => (
-              <NavLink key={item.to} to={item.to}
+              <NavLink key={item.to} to={item.to} onMouseEnter={() => prefetchRoute(item.to)} onTouchStart={() => prefetchRoute(item.to)}
                 className={({ isActive }) => (isActive ? 'active' : '')}>
                 {item.label}
               </NavLink>
             ))}
           </nav>
           <div className="header-cta">
-            <Link className="btn small" to="/contact">Check availability</Link>
+            <Link className="btn small" to="/contact" onMouseEnter={() => prefetchRoute('/contact')}>Check availability</Link>
             <button
               type="button"
               className={`burger ${open ? 'open' : ''}`}
@@ -103,7 +104,7 @@ export default function Header() {
         </div>
         <nav className="drawer-nav">
           {NAV.map(item => (
-            <NavLink key={item.to} to={item.to} onClick={close}
+            <NavLink key={item.to} to={item.to} onMouseEnter={() => prefetchRoute(item.to)} onTouchStart={() => prefetchRoute(item.to)} onClick={close}
               className={({ isActive }) => (isActive ? 'active' : '')}>
               {item.label}
             </NavLink>

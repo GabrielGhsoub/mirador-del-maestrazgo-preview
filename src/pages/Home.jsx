@@ -1,5 +1,7 @@
+import { imgFadeRef, imgFadeLoad } from '../hooks/imgFade.js'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
+import { prefetchRoute } from '../routes.js'
 import { SITE } from '../data/site.js'
 import content from '../data/content.json'
 import DirectStrip from '../components/DirectStrip.jsx'
@@ -13,21 +15,21 @@ const HOUSES = [
     name: 'Los Pajarcicos',
     cap: 'Two apartments · up to 8 guests',
     desc: 'Two independent apartments in converted barns, each with a double loft bedroom, equipped kitchen and wood stove. Perfect for couples and small families.',
-    img: 'img/d7a024-pajar-altaR_01-2048x1367.jpg',
+    img: 'img/t/d7a024-pajar-altaR_01-2048x1367.jpg',
   },
   {
     slug: 'la-casa-de-colores',
     name: 'La Casa de Colores',
     cap: 'Four en-suite rooms · up to 10 guests',
     desc: 'A cheerful rural house with four colourful en-suite bedrooms and a shared dining room. Book a room or take the whole house with friends.',
-    img: 'img/45bbc9-HAmarilla_03-768x544.jpg',
+    img: 'img/t/45bbc9-HAmarilla_03-768x544.jpg',
   },
   {
     slug: 'la-casa-del-gato',
     name: 'La Casa del Gato',
     cap: 'Whole house · 6 to 10 guests',
     desc: 'A traditional village house over one hundred years old, carefully restored with every modern comfort. Ideal for families and groups.',
-    img: 'img/9342c9-C.-gato-AltaR_25-1-2048x1536.jpg',
+    img: 'img/t/9342c9-C.-gato-AltaR_25-1-2048x1536.jpg',
   },
 ]
 
@@ -44,7 +46,7 @@ function FadeImage({ src, alt, className = '', ...rest }) {
     <img
       src={src}
       alt={alt}
-      className={`img-fade${loaded ? ' loaded' : ''}${className ? ' ' + className : ''}`}
+      ref={imgFadeRef} className={`img-fade${loaded ? ' loaded' : ''}${className ? ' ' + className : ''}`}
       onLoad={() => setLoaded(true)}
       {...rest}
     />
@@ -59,14 +61,15 @@ export default function Home() {
 
   return (
     <>
-      <div className="hero" style={{ backgroundImage: `linear-gradient(rgba(20,18,10,.28), rgba(20,18,10,.62)), url('${SITE.heroImage}')` }}>
+      <div className="hero">
+        <div className="hero-bg" style={{ backgroundImage: "linear-gradient(rgba(20,18,10,.28), rgba(20,18,10,.62)), url('img/m/8e7e8e-154-2048x1536.jpg')" }} />
         <div className="wrap hero-inner">
           <div className="kick">Ejulve · Teruel · Spain</div>
           <h1>Rural calm at the gateway to the Maestrazgo</h1>
           <p>Three welcoming holiday houses for up to 28 guests, in a quiet mountain village at the start of the Silent Route, inside the Maestrazgo UNESCO Global Geopark.</p>
           <div className="cta-row">
-            <Link className="btn" to="/contact">Check availability</Link>
-            <Link className="btn ghost" to="/houses">Explore the houses</Link>
+            <Link className="btn" to="/contact" onMouseEnter={() => prefetchRoute('/contact')}>Check availability</Link>
+            <Link className="btn ghost" to="/houses" onMouseEnter={() => prefetchRoute('/houses')}>Explore the houses</Link>
           </div>
           <div className="proof">
             <div><b>{SITE.scores.booking} / 10</b><span>Booking.com · {SITE.scores.bookingReviews} reviews</span></div>
@@ -86,8 +89,8 @@ export default function Home() {
             <p className="lede">Stay in lovingly restored village houses with fully equipped kitchens, cosy rooms and terraces looking out over the Maestrazgo.</p>
           </Reveal>
           <div className="grid3">
-            {HOUSES.map(house => (
-              <Reveal as="div" className="house card hover-lift hover-zoom" key={house.slug}>
+            {HOUSES.map((house, i) => (
+              <Reveal as="div" className="house card hover-lift hover-zoom" key={house.slug} delay={i * 60}>
                 <div className="ph">
                   <FadeImage src={house.img} alt={house.name} />
                 </div>
@@ -96,8 +99,8 @@ export default function Home() {
                   <h3>{house.name}</h3>
                   <p>{house.desc}</p>
                   <div className="links">
-                    <Link to="/contact">Check dates</Link>
-                    <Link to={`/houses/${house.slug}`}>See the house →</Link>
+                    <Link to="/contact" onMouseEnter={() => prefetchRoute('/contact')}>Check dates</Link>
+                    <Link onMouseEnter={() => prefetchRoute('/houses/x')} to={`/houses/${house.slug}`}>See the house →</Link>
                   </div>
                 </div>
               </Reveal>
@@ -127,8 +130,8 @@ export default function Home() {
             <p className="lede">Ejulve sits at the entrance to one of Spain's wildest and least crowded regions. From the front door:</p>
           </Reveal>
           <div className="grid4">
-            {ACTIVITIES.map(act => (
-              <Reveal as="div" className="act hover-lift" key={act.n}>
+            {ACTIVITIES.map((act, i) => (
+              <Reveal as="div" className="act hover-lift" key={act.n} delay={i * 50}>
                 <span className="n">{act.n}</span>
                 <h3>{act.h}</h3>
                 <p>{act.p}</p>
@@ -146,7 +149,7 @@ export default function Home() {
             <p>On request, keep your house until 6:00 pm on departure day for 50% of one night. Come back from your morning walk, shower, have lunch on the terrace and leave without hurry.</p>
             <div className="big">Best price guaranteed when you book on this website.</div>
           </Reveal>
-          <Reveal as="div" className="about" style={{ backgroundImage: "linear-gradient(rgba(20,18,10,.2), rgba(20,18,10,.75)), url('img/d0d4d9-Comunes_01.jpg')" }}>
+          <Reveal as="div" className="about" delay={60} style={{ backgroundImage: "linear-gradient(rgba(20,18,10,.2), rgba(20,18,10,.75)), url('img/m/d0d4d9-Comunes_01.jpg')" }}>
             <h3>Fernando and Mar, your hosts</h3>
             <p>We look after every detail so you can enjoy the Maestrazgo in its purest state.</p>
             <div className="motto">"Come, and let us take care of you!"</div>

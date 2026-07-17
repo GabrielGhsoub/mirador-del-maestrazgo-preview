@@ -1,7 +1,7 @@
 .mobile-cta{
   display:none;
   position:fixed; left:0; right:0; bottom:0; z-index:80;
-  background:var(--ink); border-top:1px solid rgba(255,255,255,.1);
+  background:var(--ink); border-top:1px solid rgba(255,255,255,.12);
   box-shadow:0 -6px 18px rgba(0,0,0,.18);
 }
 
@@ -9,13 +9,16 @@
   display:flex; flex-direction:column; align-items:center; justify-content:center;
   gap:3px; flex:1; padding:9px 6px 10px; color:#f2f0e6;
   font-size:11px; font-weight:700; letter-spacing:.01em;
+  transition:color .2s ease, transform .2s ease, background .2s ease;
 }
-.mobile-cta-btn:not(:last-child){border-right:1px solid rgba(255,255,255,.1)}
+.mobile-cta-btn svg{display:block; margin:0 auto}
+.mobile-cta-btn:not(:last-child){border-right:1px solid rgba(255,255,255,.12)}
 .mobile-cta-btn:focus-visible{outline:2px solid var(--gold); outline-offset:-2px}
+.mobile-cta-btn:active{transform:translateY(1px)}
 
 .mobile-cta-btn.whatsapp{color:#25d366}
 .mobile-cta-btn.book{background:var(--gold); color:var(--ink)}
-.mobile-cta-btn.book:active{background:var(--gold-dark)}
+.mobile-cta-btn.book:active{background:var(--gold-dark); transform:translateY(1px)}
 
 @media (max-width:899px){
   .mobile-cta{display:flex}

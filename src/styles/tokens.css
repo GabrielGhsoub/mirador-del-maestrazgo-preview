@@ -13,7 +13,7 @@ html{overflow-x:hidden}
 body{max-width:100%}
 body{font-family:'Sora',sans-serif; color:var(--ink); background:#fff; line-height:1.6}
 img{max-width:100%; display:block}
-a{text-decoration:none; color:inherit}
+a{text-decoration:none; color:inherit; transition:color .18s ease}
 .wrap{max-width:1160px; margin:0 auto; padding:0 24px}
 
 /* type + section scaffolding */
@@ -24,12 +24,20 @@ h2{font-size:clamp(24px,3vw,34px); font-weight:800; letter-spacing:-.02em; margi
 .bg-stone{background:var(--stone)}
 
 /* buttons */
-.btn{display:inline-block; background:var(--gold); color:var(--ink); font-weight:700; padding:14px 28px; border-radius:99px; font-size:15px; border:0; cursor:pointer}
+.btn{display:inline-block; background:var(--gold); color:var(--ink); font-weight:700; padding:14px 28px; border-radius:99px; font-size:15px; border:0; cursor:pointer;
+  transition:background-color .18s ease, color .18s ease, border-color .18s ease, transform .18s ease}
 .btn:hover{background:var(--gold-dark); color:#fff}
+.btn:active{transform:translateY(1px)}
 .btn.small{padding:9px 18px; font-size:13px}
 .btn.ghost{background:transparent; color:#fff; border:1.5px solid rgba(255,255,255,.65)}
 .btn.dark{background:var(--ink); color:#fff}
-.link-gold{color:var(--gold-dark); font-weight:700; font-size:13px}
+.link-gold{color:var(--gold-dark); font-weight:700; font-size:13px; transition:color .18s ease}
+.link-gold:hover{color:var(--ink)}
+
+@media (prefers-reduced-motion: reduce){
+  .btn,.link-gold,a{transition:none}
+  .btn:active{transform:none}
+}
 
 /* page hero (interior pages) */
 .page-hero{position:relative; min-height:320px; display:flex; align-items:flex-end; color:#fff;

@@ -1,9 +1,11 @@
+import { imgFadeRef, imgFadeLoad } from '../hooks/imgFade.js'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import { SITE } from '../data/site.js'
 import content from '../data/content.json'
 import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
+import HouseModal from '../components/HouseModal.jsx'
 import './houses.css'
 
 function FadeImage({ src, alt, className = '', ...rest }) {
@@ -12,7 +14,7 @@ function FadeImage({ src, alt, className = '', ...rest }) {
     <img
       src={src}
       alt={alt}
-      className={`img-fade${loaded ? ' loaded' : ''}${className ? ' ' + className : ''}`}
+      ref={imgFadeRef} className={`img-fade${loaded ? ' loaded' : ''}${className ? ' ' + className : ''}`}
       onLoad={() => setLoaded(true)}
       {...rest}
     />
@@ -21,6 +23,7 @@ function FadeImage({ src, alt, className = '', ...rest }) {
 
 export default function Houses() {
   const houses = content.houses || []
+  const [modalHouse, setModalHouse] = useState(null)
 
   usePageTitle('Our houses | Mirador del Maestrazgo')
 
@@ -46,9 +49,25 @@ export default function Houses() {
 
           <div className="house-list">
             {houses.map(house => (
-              <Reveal as="article" className="card house-card hover-lift" key={house.slug}>
-                <div className="hc-media hover-zoom" role="img" aria-label={house.name}>
+              <Reveal
+                as="article"
+                className="card house-card hc-click"
+                key={house.slug}
+                onClick={() => setModalHouse(house)}
+              >
+                <div className="hc-media">
                   <FadeImage src={house.heroImage} alt={house.name} />
+                  <button
+                    type="button"
+                    className="hc-quick"
+                    onClick={e => {
+                      e.stopPropagation()
+                      setModalHouse(house)
+                    }}
+                    aria-haspopup="dialog"
+                  >
+                    Quick view
+                  </button>
                 </div>
                 <div className="hc-body">
                   <div className="hc-cap">Sleeps {house.capacity}</div>
@@ -58,8 +77,20 @@ export default function Houses() {
                     <p className="hc-desc">{house.description[0]}</p>
                   )}
                   <div className="hc-actions">
-                    <Link className="btn small" to={`/houses/${house.slug}`}>See the house</Link>
-                    <Link className="btn small dark" to="/contact">Check availability</Link>
+                    <Link
+                      className="btn small"
+                      to={`/houses/${house.slug}`}
+                      onClick={e => e.stopPropagation()}
+                    >
+                      See the house
+                    </Link>
+                    <Link
+                      className="btn small dark"
+                      to="/contact"
+                      onClick={e => e.stopPropagation()}
+                    >
+                      Check availability
+                    </Link>
                   </div>
                 </div>
               </Reveal>
@@ -67,6 +98,8 @@ export default function Houses() {
           </div>
         </div>
       </section>
+
+      {modalHouse && <HouseModal house={modalHouse} onClose={() => setModalHouse(null)} />}
     </>
   )
 }

@@ -5,7 +5,7 @@ import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './misc.css'
 
-const HERO = 'img/8e7e8e-154-2048x1536.jpg'
+const HERO = 'img/m/8e7e8e-154-2048x1536.jpg'
 
 export default function Location() {
   const { intro, howToGet, address, gmapsQuery } = content.location
@@ -39,7 +39,7 @@ export default function Location() {
                 ))}
               </div>
             </Reveal>
-            <Reveal as="div" className="map-card">
+            <Reveal as="div" className="map-card" delay={80}>
               <iframe title="Map of Mirador del Maestrazgo, Ejulve" src={mapSrc} loading="lazy" referrerPolicy="no-referrer-when-downgrade" />
               <div className="map-foot">
                 <span>{address}</span>

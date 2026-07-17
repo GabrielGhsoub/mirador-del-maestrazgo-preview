@@ -1,6 +1,7 @@
 .topbar{background:var(--ink); color:#d9d6c8; font-size:12.5px}
 .topbar .wrap{display:flex; justify-content:space-between; align-items:center; padding-top:7px; padding-bottom:7px; gap:12px; flex-wrap:wrap}
-.topbar a{color:#fff}
+.topbar a{color:#fff; transition:color .2s ease}
+.topbar a:hover{color:var(--gold)}
 .topbar .sep{margin:0 8px}
 .langs{display:flex; gap:6px}
 .langs span{padding:2px 9px; border-radius:99px; border:1px solid #55523f; font-weight:600; font-size:11px; letter-spacing:.04em}
@@ -8,7 +9,7 @@
 
 .site-header{background:#fff; border-bottom:1px solid var(--line); position:sticky; top:0; z-index:50;
   transition:box-shadow .25s ease, padding .25s ease}
-.site-header.scrolled{box-shadow:0 6px 20px rgba(20,18,10,.08)}
+.site-header.scrolled{box-shadow:0 18px 44px rgba(20,18,10,.06)}
 .nav{display:flex; align-items:center; justify-content:space-between; padding:14px 24px; max-width:1160px; margin:0 auto; gap:18px;
   transition:padding .25s ease}
 .site-header.scrolled .nav{padding:9px 24px}
@@ -19,10 +20,12 @@
 .menu a{position:relative; padding:6px 0}
 .menu a:hover{color:var(--gold-dark)}
 .menu a.active{color:var(--gold-dark)}
-.menu a.active::after{
+.menu a::after{
   content:''; position:absolute; left:0; right:0; bottom:-3px; height:3px;
-  border-radius:99px; background:var(--gold)
+  border-radius:99px; background:var(--gold); opacity:0; transform:scaleX(.4);
+  transition:opacity .2s ease, transform .2s ease;
 }
+.menu a.active::after{opacity:1; transform:scaleX(1)}
 
 .header-cta{display:flex; align-items:center; gap:12px}
 
