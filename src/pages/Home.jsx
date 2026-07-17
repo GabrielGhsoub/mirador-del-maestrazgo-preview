@@ -5,6 +5,7 @@ import { prefetchRoute } from '../routes.js'
 import { SITE } from '../data/site.js'
 import content from '../data/content.json'
 import DirectStrip from '../components/DirectStrip.jsx'
+import HouseModal from '../components/HouseModal.jsx'
 import usePageTitle from '../hooks/usePageTitle.js'
 import Reveal from '../hooks/useReveal.jsx'
 import './home.css'
@@ -55,7 +56,13 @@ function FadeImage({ src, alt, className = '', ...rest }) {
 
 export default function Home() {
   const [openFaq, setOpenFaq] = useState(0)
+  const [modalHouse, setModalHouse] = useState(null)
   const faqs = content.faq || []
+  const housesData = content.houses || []
+  const openQuickView = slug => {
+    const full = housesData.find(h => h.slug === slug)
+    if (full) setModalHouse(full)
+  }
 
   usePageTitle('Mirador del Maestrazgo | Rural houses in Ejulve, Teruel')
 
@@ -90,17 +97,34 @@ export default function Home() {
           </Reveal>
           <div className="grid3">
             {HOUSES.map((house, i) => (
-              <Reveal as="div" className="house card hover-lift hover-zoom" key={house.slug} delay={i * 60}>
+              <Reveal
+                as="div"
+                className="house card hover-lift hover-zoom hv-click"
+                key={house.slug}
+                delay={i * 60}
+                onClick={() => openQuickView(house.slug)}
+              >
                 <div className="ph">
                   <FadeImage src={house.img} alt={house.name} />
+                  <button
+                    type="button"
+                    className="home-quick"
+                    onClick={e => {
+                      e.stopPropagation()
+                      openQuickView(house.slug)
+                    }}
+                    aria-haspopup="dialog"
+                  >
+                    Quick view
+                  </button>
                 </div>
                 <div className="body">
                   <div className="cap">{house.cap}</div>
                   <h3>{house.name}</h3>
                   <p>{house.desc}</p>
                   <div className="links">
-                    <Link to="/contact" onMouseEnter={() => prefetchRoute('/contact')}>Check dates</Link>
-                    <Link onMouseEnter={() => prefetchRoute('/houses/x')} to={`/houses/${house.slug}`}>See the house →</Link>
+                    <Link to="/contact" onClick={e => e.stopPropagation()} onMouseEnter={() => prefetchRoute('/contact')}>Check dates</Link>
+                    <Link onClick={e => e.stopPropagation()} onMouseEnter={() => prefetchRoute('/houses/x')} to={`/houses/${house.slug}`}>See the house →</Link>
                   </div>
                 </div>
               </Reveal>
@@ -141,7 +165,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section>
+      <section className="duo-sec">
         <div className="wrap duo">
           <Reveal as="div" className="perk bg-stone">
             <div className="sec-kick">Only when you book direct</div>
@@ -164,16 +188,33 @@ export default function Home() {
           {faqs.map((item, i) => {
             const isOpen = openFaq === i
             return (
-              <div className="qa" key={item.q}>
-                <h3 onClick={() => setOpenFaq(isOpen ? -1 : i)}>
-                  {item.q} <span>{isOpen ? '−' : '+'}</span>
+              <div className={`qa${isOpen ? ' open' : ''}`} key={item.q}>
+                <h3
+                  onClick={() => setOpenFaq(isOpen ? -1 : i)}
+                  role="button"
+                  aria-expanded={isOpen}
+                  tabIndex={0}
+                  onKeyDown={e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                      e.preventDefault()
+                      setOpenFaq(isOpen ? -1 : i)
+                    }
+                  }}
+                >
+                  {item.q} <span aria-hidden="true">+</span>
                 </h3>
-                {isOpen && <p>{item.a}</p>}
+                <div className="qa-body">
+                  <div className="qa-inner">
+                    <p>{item.a}</p>
+                  </div>
+                </div>
               </div>
             )
           })}
         </Reveal>
       </section>
+
+      {modalHouse && <HouseModal house={modalHouse} onClose={() => setModalHouse(null)} />}
     </>
   )
 }

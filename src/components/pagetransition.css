@@ -1,14 +1,21 @@
-/* Page transition: the incoming view glides in (fade + 7px rise).
-   "both" fill keeps frame 0 applied before the animation starts,
-   so the page never flashes fully-rendered then re-animates. */
-.page-glide{
-  animation:page-glide-in .32s cubic-bezier(.22,.61,.36,1) both;
-  will-change:opacity, transform;
+/* Page transition stage (double-buffer crossfade, see PageTransition.jsx).
+   exit  : current view fades to 0 and drifts up 6px over 180ms
+   enter : new view fades in from 0, rising 8px, over 300ms
+   "both" fill keeps frame 0 applied before each animation starts, so the
+   page never flashes fully-rendered then re-animates (no white blink). */
+.page-stage{will-change:opacity, transform}
+.page-stage-exit{animation:page-stage-out .18s ease both}
+.page-stage-enter{animation:page-stage-in .3s cubic-bezier(.22,.61,.36,1) both}
+
+@keyframes page-stage-out{
+  from{opacity:1; transform:none}
+  to{opacity:0; transform:translateY(-6px)}
 }
-@keyframes page-glide-in{
-  from{opacity:0; transform:translateY(7px)}
+@keyframes page-stage-in{
+  from{opacity:0; transform:translateY(8px)}
   to{opacity:1; transform:none}
 }
+
 @media (prefers-reduced-motion: reduce){
-  .page-glide{animation:none}
+  .page-stage-exit,.page-stage-enter{animation:none}
 }
