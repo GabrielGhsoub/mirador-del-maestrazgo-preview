@@ -153,3 +153,9 @@
 }
 
 .hero .kick{text-shadow:0 1px 8px rgba(20,18,10,.6)}
+
+/* hero proof row: more air (owner feedback) */
+.proof{gap:44px; margin-top:6px}
+.proof div{gap:4px}
+.hero-inner{padding-bottom:56px}
+@media (max-width:520px){ .proof{gap:22px} }

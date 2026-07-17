@@ -4,6 +4,7 @@ import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
 import MobileCta from './components/MobileCta.jsx'
 import BackToTop from './components/BackToTop.jsx'
+import WhatsAppFloat from './components/WhatsAppFloat.jsx'
 import PageTransition from './components/PageTransition.jsx'
 import Home from './pages/Home.jsx'
 import { importers } from './routes.js'
@@ -43,6 +44,7 @@ export default function App() {
       <Footer />
       <MobileCta />
       <BackToTop />
+      <WhatsAppFloat />
     </>
   )
 }

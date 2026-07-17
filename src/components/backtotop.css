@@ -1,5 +1,5 @@
 .back-to-top{
-  position:fixed; right:14px; bottom:64px; z-index:70;
+  position:fixed; right:22px; bottom:84px; z-index:70;
   width:46px; height:46px; border-radius:50%; border:0; cursor:pointer;
   background:var(--gold); color:var(--ink);
   display:flex; align-items:center; justify-content:center;

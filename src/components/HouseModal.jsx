@@ -1,6 +1,7 @@
 // Quick view modal for the houses index page. Opens from a house card,
 // shows a photo strip plus the essentials, and links through to the full
 // detail page. Closes on X, backdrop click and Escape; locks body scroll.
+import { createPortal } from 'react-dom'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { imgFadeRef, imgFadeLoad } from '../hooks/imgFade.js'
@@ -78,7 +79,7 @@ export default function HouseModal({ house, onClose }) {
 
   const titleId = `hm-title-${house.slug}`
 
-  return (
+  return createPortal((
     <div
       className="hm-overlay"
       onClick={e => {
@@ -145,5 +146,5 @@ export default function HouseModal({ house, onClose }) {
         </div>
       </div>
     </div>
-  )
+  ), document.body)
 }
